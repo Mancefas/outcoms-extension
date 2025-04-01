@@ -5,5 +5,13 @@
     "manifest_version": 3,
     "action": {
       "default_popup": "outcomsButtons.html"
-        }
+        },
+    "content_scripts": [
+    {
+      "js": ["inputSearcher.js"],
+      "matches": [
+        "https://developer.chrome.com/docs/extensions/*",
+        "https://developer.chrome.com/docs/webstore/*"
+      ]
+    }]
   }
