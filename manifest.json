@@ -8,10 +8,14 @@
         },
     "content_scripts": [
     {
-      "js": ["inputSearcher.js"],
+      "js": ["tabContent.js"],
       "matches": [
         "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/webstore/*"
+        "<all_urls>"
       ]
-    }]
+    }],
+    "permissions": [
+      "activeTab",
+      "scripting"
+    ]
   }
