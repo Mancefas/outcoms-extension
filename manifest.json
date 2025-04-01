@@ -1,0 +1,9 @@
+{
+    "name": "Outcoms Extensions",
+    "description": "Extension that helps you to fill proper outcoms ",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "outcomsButtons.html"
+        }
+  }
