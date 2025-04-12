@@ -1,7 +1,11 @@
+import askGemini from "../scripts/askGemini"
+// import { useState } from "react"
 import styles from "./Buttons.module.css"
 
 const Buttons = () => {
-    const TEST_MESSAGE = "WORKS !!!"
+    // const [someText, setSomeText] = useState<string>("");
+
+    const TEST_MESSAGE = "added button to management system time report"
     const clickHandler = async () => {
         
         let [tab] = await chrome.tabs.query({active: true});
@@ -17,6 +21,7 @@ const Buttons = () => {
                 if (div) {
                     const input = div.querySelector("input");
                     // const currentText = input?.value;
+                    // const convertedText = await askGemini(currentText);
                     if (input) {
                         input.value = receivedMessage;
                     }
@@ -26,10 +31,16 @@ const Buttons = () => {
         })
     }
 
+    const asd = async () => {
+        const answ = await askGemini(TEST_MESSAGE);
+        console.log(answ);
+    
+    }
+
   return (
     <div className={styles.buttonContainer}>
     <button id="moreProffesional" type="button" onClick={clickHandler}>Proffesional</button>
-    <button id="moreFunny" type="button">Funny</button>
+    <button id="moreFunny" onClick={asd} type="button">tes</button>
   </div>
   )
 }
