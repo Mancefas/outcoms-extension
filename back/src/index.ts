@@ -13,10 +13,18 @@ app.post('/api/gemini', async (req: Request, res: Response) => {
         if (!userQuery) {
             res.status(400).send("No query found")
         };
-        console.log(userQuery)
 
-        const resp = await askGemini(userQuery);
-        res.json(resp);
+        const geminiResp = await askGemini(userQuery);
+        
+        if (!geminiResp || !geminiResp.candidates || geminiResp.candidates.length === 0) {
+            res.status(400).send("Gemini error")
+        } else {
+            // res.json(resp);
+            const generatedText = geminiResp.candidates[0]?.content?.parts?.[0]?.text ?? "";
+            res.setHeader('Content-Type', 'text/plain');
+            res.send(generatedText)
+        }
+
     } catch(err) {
         console.error("Error : ", err);
         res.status(500).send("Something went wrong.");
