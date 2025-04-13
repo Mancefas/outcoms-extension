@@ -13,5 +13,9 @@
     ],
     "host_permissions": [
         "https://developer.chrome.com/docs/extensions/*"
-    ]
+    ],
+    "content_scripts":[{
+      "js": ["assets/contentScript.js"],
+      "matches": ["https://developer.chrome.com/*"]
+    }]
   }

@@ -1,11 +1,13 @@
 import express, { Request, Response } from 'express';
 import askGemini from './services/askGemini';
+import cors from 'cors';
 
 const app = express();
 const port = 8080;
 
 // app.use(express.json());
 app.use(express.text()); 
+app.use(cors());
 
 app.post('/api/gemini', async (req: Request, res: Response) => {
     try {
@@ -29,7 +31,6 @@ app.post('/api/gemini', async (req: Request, res: Response) => {
         console.error("Error : ", err);
         res.status(500).send("Something went wrong.");
     }
-  res.send("Hello from backend");
 });
 
 app.listen(port, () => {
