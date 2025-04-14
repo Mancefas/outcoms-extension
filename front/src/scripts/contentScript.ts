@@ -1,7 +1,7 @@
 const url = 'http://localhost:8080/api/gemini';
 const div = document.querySelector("div.devsite-searchbox");
 
-const element = '<span id="myExtensionButton" style="cursor: "pointer"">😊</span>';
+const element = '<span id="myExtensionButton" style="cursor: "pointer"">😈</span>';
 
 if (div) {
     // const input = div?.querySelector("input.devsite-search-field");
